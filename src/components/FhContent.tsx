@@ -14,8 +14,8 @@ import polaroid_LLM3 from "@/images/fh/LLM3.jpeg";
 export default function FhContent() {
   return (
     <div className="w-full bg-teal-950 py-3">
-      <div className="flex md:w-[80%] w-full mx-auto items-center gap-4 p-4 text-white bg-teal-700 rounded-md">
-        <div className="md:w-[50%] w-full bg-white rounded-lg my-auto p-4">
+      <div className="flex flex-col md:flex-row md:w-[80%] w-full mx-auto items-center gap-4 p-4 text-white bg-teal-700 rounded-md">
+        <div className="w-[50%] bg-white rounded-lg my-auto p-4">
           <img src={fhLogo} className="w-full h-full object-cover rounded-lg" />
         </div>
         <div className="md:w-[50%] w-full">

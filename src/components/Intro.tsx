@@ -4,8 +4,8 @@ import { TypeAnimation } from "react-type-animation";
 
 export function Intro() {
   return (
-    <div className="h-screen flex items-center bg-indigo-900 text-white px-10 md:px-20">
-      <div className="mb-4 w-full lg:w-1/2 px-10 gap-4 font-outfit">
+    <div className="min-h-screen flex flex-col md:flex-row justify-center items-center bg-indigo-900 text-white px-10 pb-4 md:px-20">
+      <div className="my-8 md:my-0 w-full md:w-1/2 px-10 gap-4 font-outfit">
         <h5 className="text-2xl">Hi there, my name is</h5>
         <h1 className="text-center text-5xl m-4">Gabriela Djuhadi.</h1>
         <p className="text-lg/8">
@@ -17,7 +17,7 @@ export function Intro() {
           Hire me!
         </Button>
       </div>
-      <div className="mb-4 text-end text-balance w-full md:w-1/2 px-10">
+      <div className="my-8 md:my-0 text-end text-balance w-full md:w-1/2 px-10">
         <TypeAnimation
           sequence={[
             "Bioinformatician by training.",
