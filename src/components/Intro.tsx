@@ -1,14 +1,13 @@
 // import { useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { TypeAnimation } from "react-type-animation";
 
 export function Intro() {
-  //    bg-indigo-700 text-white;
   return (
-    <div className="h-screen flex items-center bg-indigo-900 text-white">
+    <div className="h-screen flex items-center bg-indigo-900 text-white px-10 md:px-20">
       <div className="mb-4 w-full lg:w-1/2 px-10 gap-4 font-outfit">
         <h5 className="text-2xl">Hi there, my name is</h5>
-        <h1 className="text-center m-4">Gabriela Djuhadi.</h1>
+        <h1 className="text-center text-5xl m-4">Gabriela Djuhadi.</h1>
         <p className="text-lg/8">
           I am a Fullstack Developer trying to find myself and my niche in a sea
           of others. I am one of a kind, for better or worse; get to know me if
