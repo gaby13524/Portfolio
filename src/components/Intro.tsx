@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { TypeAnimation } from "react-type-animation";
+import resumePdf from "@/assets/Djuhadi-Resume.pdf";
 
 export function Intro() {
   return (
@@ -11,11 +12,13 @@ export function Intro() {
         <p className="text-lg/8">
           I am a Fullstack Developer trying to find myself and my niche in a sea
           of others. I am one of a kind, for better or worse; get to know me if
-          you dare (I need a job).
+          you dare (<strong>I need a job</strong>).
         </p>
-        <Button variant="rose" className="mx-auto block" onClick={() => {}}>
-          Hire me!
-        </Button>
+        <a href={resumePdf} download="Djuhadi-Resume.pdf">
+          <Button variant="rose" className="mx-auto block">
+            Hire me!
+          </Button>
+        </a>
       </div>
       <div className="my-8 md:my-0 text-end text-balance w-full md:w-1/2 px-10">
         <TypeAnimation
