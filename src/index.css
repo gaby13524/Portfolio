@@ -1,10 +1,95 @@
 @import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Bungee&family=Outfit:wght@100..900&display=swap");
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @theme {
   --font-bitcount: "Bitcount Grid Double", monospace;
   --font-bungee: "Bungee", sans-serif;
   --font-outfit: "Outfit", sans-serif;
+
+  /* stormy_teal */
+  --color-stormy_teal: #286569;
+  --color-stormy_teal-100: #cae9eb;
+  --color-stormy_teal-200: #95d2d7;
+  --color-stormy_teal-300: #5fbcc2;
+  --color-stormy_teal-400: #3b969d;
+  --color-stormy_teal-500: #286569;
+  --color-stormy_teal-600: #1f4f53;
+  --color-stormy_teal-700: #183c3e;
+  --color-stormy_teal-800: #102829;
+  --color-stormy_teal-900: #081415;
+
+  /* verdigris */
+  --color-verdigris: #2a9d8f;
+  --color-verdigris-100: #cef2ee;
+  --color-verdigris-200: #9de5dc;
+  --color-verdigris-300: #6cd8cb;
+  --color-verdigris-400: #3acbba;
+  --color-verdigris-500: #2a9d8f;
+  --color-verdigris-600: #217e73;
+  --color-verdigris-700: #195e56;
+  --color-verdigris-800: #113f39;
+  --color-verdigris-900: #081f1d;
+
+  /* frosted_mint */
+  --color-frosted_mint: #ddffd9;
+  --color-frosted_mint-100: #f9fff8;
+  --color-frosted_mint-200: #f2fff1;
+  --color-frosted_mint-300: #ecffea;
+  --color-frosted_mint-400: #e5ffe2;
+  --color-frosted_mint-500: #ddffd9;
+  --color-frosted_mint-600: #89ff7c;
+  --color-frosted_mint-700: #34ff1e;
+  --color-frosted_mint-800: #13be00;
+  --color-frosted_mint-900: #095f00;
+
+  /* champagne_mist */
+  --color-champagne_mist: #ffead0;
+  --color-champagne_mist-100: #fffbf6;
+  --color-champagne_mist-200: #fff7ed;
+  --color-champagne_mist-300: #fff3e3;
+  --color-champagne_mist-400: #ffeeda;
+  --color-champagne_mist-500: #ffead0;
+  --color-champagne_mist-600: #ffc174;
+  --color-champagne_mist-700: #ff9717;
+  --color-champagne_mist-800: #ba6600;
+  --color-champagne_mist-900: #5d3300;
+
+  /* burnt_peach */
+  --color-burnt_peach: #e76f51;
+  --color-burnt_peach-100: #fae2dc;
+  --color-burnt_peach-200: #f5c5b9;
+  --color-burnt_peach-300: #f1a896;
+  --color-burnt_peach-400: #ec8b73;
+  --color-burnt_peach-500: #e76f51;
+  --color-burnt_peach-600: #db441e;
+  --color-burnt_peach-700: #a43316;
+  --color-burnt_peach-800: #6e220f;
+  --color-burnt_peach-900: #371107;
+
+  /* oxblood */
+  --color-oxblood: #92140c;
+  --color-oxblood-100: #fac2be;
+  --color-oxblood-200: #f4857d;
+  --color-oxblood-300: #ef483c;
+  --color-oxblood-400: #d31e11;
+  --color-oxblood-500: #92140c;
+  --color-oxblood-600: #751109;
+  --color-oxblood-700: #580c07;
+  --color-oxblood-800: #3a0805;
+  --color-oxblood-900: #1d0402;
+
+  /* wine_plum */
+  --color-wine_plum: #6b2737;
+  --color-wine_plum-100: #eccad2;
+  --color-wine_plum-200: #d995a4;
+  --color-wine_plum-300: #c55f77;
+  --color-wine_plum-400: #a23a53;
+  --color-wine_plum-500: #6b2737;
+  --color-wine_plum-600: #571f2c;
+  --color-wine_plum-700: #411821;
+  --color-wine_plum-800: #2b1016;
+  --color-wine_plum-900: #16080b;
 }
 
 /* :root {

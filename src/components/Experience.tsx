@@ -4,23 +4,21 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import FhContent, { FH_pics } from "./FhContent";
 
-export function AccordionDemo() {
+export function Experience() {
   return (
     <Accordion
       type="single"
       collapsible
       defaultValue="shipping"
-      className="max-w-lg"
+      className="w-screen bg-frosted_mint font-xl font-outfit text-stone-700"
     >
       <AccordionItem value="fh">
         <AccordionTrigger>Work at Fraunhofer FOKUS</AccordionTrigger>
         <AccordionContent>
-          Do I get the job done? Maybe. But am I a great addition to the team?
-          Absolutely. I had a lot of fun working there and I learned a lot. I
-          got to work on a lot of different projects and I met amazing people,
-          but lowkey work environment was okay. I had to be the one organizing
-          things like potluck and secret santa, and games to lunch lmao.
+          <FhContent />
+          <FH_pics />
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="sm">

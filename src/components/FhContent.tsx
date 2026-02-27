@@ -3,7 +3,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import fhLogo from "@/assets/fhLogo.svg";
+// import fhLogo from "@/assets/fhLogo.svg";
 import sommerEvent from "@/images/fh/som_ev.jpeg";
 import potluck1 from "@/images/fh/potluck1(4).jpg";
 import potluck3 from "@/images/fh/potluck3.jpg";
@@ -13,9 +13,20 @@ import polaroid_LLM3 from "@/images/fh/LLM3.jpeg";
 
 export default function FhContent() {
   return (
-    <div className="w-full bg-teal-950 py-3">
-      <div className="flex flex-col md:flex-row md:w-[80%] w-full mx-auto items-center gap-4 p-4 text-white bg-teal-700 rounded-md">
-        <div className="w-[50%] bg-white rounded-lg my-auto p-4">
+    <div className="w-full bg-teal-950 py-3 text-champagne_mist-100">
+      <div className="flex flex-col md:w-[80%] w-full mx-auto gap-4 py-8 px-[5%] bg-teal-700 rounded-md">
+        {/* <div className="flex flex-col md:flex-row md:w-[80%] w-full mx-auto items-center gap-4 p-4 text-white bg-teal-700 rounded-md"> */}
+        <h2 className="text-2xl">
+          Do I get the job done? Maybe. But am I a great addition to the team?
+          Absolutely.
+        </h2>
+        <p className="mb-4 text-xl">
+          I had a lot of fun working there and I learned a lot. I got to work on
+          a lot of different projects and I met amazing people, but lowkey work
+          environment was okay. I had to be the one organizing things like
+          potluck and secret santa, and games to lunch lmao.
+        </p>
+        {/* <div className="w-[50%] bg-white rounded-lg my-auto p-4">
           <img src={fhLogo} className="w-full h-full object-cover rounded-lg" />
         </div>
         <div className="md:w-[50%] w-full">
@@ -30,7 +41,7 @@ export default function FhContent() {
             entire project because I'm a simp for everyone I'm including here
             and I still miss them a lot.
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

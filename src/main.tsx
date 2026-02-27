@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { Intro } from "./components/Intro";
-import FhContent, { FH_pics } from "./components/FhContent";
+import { Experience } from "./components/Experience";
 
 function App() {
   return (
@@ -13,8 +13,7 @@ function App() {
         just to say hi! (I need a job)
         <p>gabglodj@gmail.com</p>
       </div>
-      <FhContent />
-      <FH_pics />
+      <Experience />
     </div>
   );
 }
