@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { TypeAnimation } from "react-type-animation";
-import resumePdf from "@/assets/Djuhadi-Resume.pdf";
+import resumePdf from "@/assets/Djuhadi_Resume.pdf";
 
 export function Intro() {
   return (
