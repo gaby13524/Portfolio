@@ -1,4 +1,3 @@
-// FIXME(gabi): replace with your real LinkedIn slug
 const LINKS = [
   {
     label: "GitHub",
@@ -8,7 +7,7 @@ const LINKS = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/YOUR_SLUG",
+    href: "https://www.linkedin.com/in/gabriela-djuhadi",
     display: "Gabriela Djuhadi",
     icon: "💼",
   },
