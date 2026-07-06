@@ -1,6 +1,6 @@
 import {useMemo, useState, type FormEvent} from "react";
 
-const BASE = 60;
+const BASE = 65;
 const FLOOR = 48;
 
 interface Perk {
