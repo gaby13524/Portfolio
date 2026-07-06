@@ -1,18 +1,22 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
+import { Navbar } from "./components/Navbar";
 import { Intro } from "./components/Intro";
 import { Experience } from "./components/Experience";
+import { Projects } from "./components/Projects";
+import { Compensation } from "./components/Compensation";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <Intro />
       <Experience />
-      <div className="text-center text-2xl w-3/4 mx-auto mb-8 bg-burnt_peach-500 rounded-lg p-6">
-        Page is still under construction ... You can email me for inquiries or
-        just to say hi! (<strong>I need a job</strong>)<p>gabglodj@gmail.com</p>
-      </div>
+      <Projects />
+      <Compensation />
+      <Footer />
     </div>
   );
 }

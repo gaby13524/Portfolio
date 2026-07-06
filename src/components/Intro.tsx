@@ -1,45 +1,51 @@
-// import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { TypeAnimation } from "react-type-animation";
-import resumePdf from "@/assets/Djuhadi_Resume.pdf";
 
 export function Intro() {
   return (
-    <div className="min-h-screen flex flex-col md:flex-row justify-center items-center bg-oxblood text-champagne_mist-200 px-10 pb-4 md:px-20">
-      <div className="my-8 md:my-0 w-full md:w-1/2 px-10 gap-4 font-outfit">
-        <h5 className="text-2xl">Hi there, my name is</h5>
-        <h1 className="text-center text-5xl m-4">Gabriela Djuhadi.</h1>
-        <p className="text-lg/8">
-          I am a Fullstack Developer trying to find myself and my niche in a sea
-          of others. I am one of a kind, for better or worse; get to know me if
-          you dare (<strong>I need a job</strong>).
-        </p>
-        <a href={resumePdf} download="Djuhadi-Resume.pdf">
-          <Button variant="rose" className="mx-auto block mt-2">
-            Hire me!
-          </Button>
+    <header className="flex min-h-[88vh] flex-col items-center justify-center bg-[var(--hero)] px-6 py-14 text-center text-champagne_mist-200 transition-colors">
+      <h5 className="mb-2 text-xl font-normal opacity-85">
+        Hi there, my name is
+      </h5>
+      <h1 className="mb-5 text-5xl font-bold tracking-tight md:text-6xl">
+        Gabriela Djuhadi.
+      </h1>
+      <p className="mb-3 max-w-lg text-[17px] leading-relaxed opacity-90">
+        I am a Fullstack Developer trying to find myself and my niche in a sea
+        of others. I am one of a kind, for better or worse; get to know me if
+        you dare (<strong>I need a job</strong>).
+      </p>
+
+      <TypeAnimation
+        sequence={[
+          "Bioinformatician by training.",
+          500,
+          "Bioinformatician by training. Web developer by (former) part-time job.",
+          500,
+          "Bioinformatician by training. Web developer by (former) part-time job. Full-time cat-servant and former personality hire",
+          1500,
+          "Bioinformatician by training. Web developer by (former) part-time job. Full-time cat-servant and former ",
+          1500,
+          "Bioinformatician by training. Web developer by (former) part-time job. Full-time cat-servant and former event organizer.",
+        ]}
+        speed={50}
+        className="font-bitcount mx-auto mt-4 mb-7 min-h-[70px] max-w-2xl text-xl text-champagne_mist-600 md:text-2xl"
+      />
+
+      <div className="flex flex-wrap justify-center gap-3">
+        <a
+          href="/resume.pdf"
+          download
+          className="rounded-lg bg-burnt_peach-500 px-7 py-3 text-[15px] font-semibold text-white transition hover:-translate-y-0.5 hover:bg-burnt_peach-600"
+        >
+          Hire me!
+        </a>
+        <a
+          href="#timeline"
+          className="rounded-lg border-[1.5px] border-champagne_mist-500/40 px-7 py-3 text-[15px] font-semibold text-champagne_mist-200 transition hover:-translate-y-0.5 hover:border-champagne_mist-200"
+        >
+          See my journey ↓
         </a>
       </div>
-      <div className="my-8 md:my-0 text-end w-full md:w-1/2 px-10 font-bitcount text-4xl">
-        <TypeAnimation
-          sequence={[
-            "Bioinformatician by training.",
-            500, // pause 1.5s
-            "Bioinformatician by training. Web developer by (former) part-time job.",
-            500, // pause 0.5s
-            "Bioinformatician by training. Web developer by (former) part-time job. Full-time cat-servant and former personality hire",
-            1500,
-            "Bioinformatician by training. Web developer by (former) part-time job. Full-time cat-servant and former ",
-            1500,
-            "Bioinformatician by training. Web developer by (former) part-time job. Full-time cat-servant and former event organizer.",
-          ]}
-          deletionSpeed={10}
-          speed={10}
-          repeat={0}
-        />
-      </div>
-    </div>
+    </header>
   );
 }
-// I am still heartbroken and would like to archive memories from my prev job.
-// please only contact me through email

@@ -1,3 +1,9 @@
+/* ============================================================
+   index.css — COMPLETE file. Replace your existing one entirely.
+   Contains: fonts + your full palette (@theme), dark variant,
+   semantic theme tokens, and globals.
+   ============================================================ */
+
 @import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Bungee&family=Outfit:wght@100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -92,71 +98,56 @@
   --color-wine_plum-900: #16080b;
 }
 
-/* :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* Tailwind v4: dark: variant driven by the data-theme attribute
+   (set on <html> by the useTheme hook) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Semantic tokens used by components via bg-[var(--surface)] etc.
+   NOTE: defined OUTSIDE @theme on purpose — they change per theme at
+   runtime, they are not static design tokens. */
+:root {
+  --surface: var(--color-champagne_mist-200);
+  --surface-card: #ffffff;
+  --surface-soft: var(--color-champagne_mist-500);
+  --ink: #44403c;
+  --ink-soft: #57534e;
+  --ink-faint: #a8a29e;
+  --ink-heading: #292524;
+  --line: #f0e4d3;
+  --line-strong: #e5d5be;
+  --hero: var(--color-oxblood-500);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+[data-theme="dark"] {
+  --surface: var(--color-stormy_teal-900);
+  --surface-card: var(--color-stormy_teal-800);
+  --surface-soft: var(--color-stormy_teal-700);
+  --ink: var(--color-stormy_teal-100);
+  --ink-soft: var(--color-stormy_teal-200);
+  --ink-faint: #4d7a7e;
+  --ink-heading: var(--color-champagne_mist-500);
+  --line: var(--color-stormy_teal-700);
+  --line-strong: var(--color-stormy_teal-600);
+  --hero: var(--color-oxblood-600);
 }
-a:hover {
-  color: #535bf2;
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: var(--font-outfit);
+  background: var(--surface);
+  color: var(--ink);
+  transition:
+    background 0.3s,
+    color 0.3s;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-} */
-/* 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit; */
-/* background-color: #1a1a1a; */
-/* cursor: pointer;
-  transition: border-color 0.25s;
-} */
-/* button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
-  a:hover {
-    color: #747bff;
-  }
-  /* button {
-    background-color: #f9f9f9;
-  } */
 }

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gabriela Djuhadi — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Bungee&family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+/* ============ Palette from your existing portfolio ============ */
+:root{
+  --oxblood:#92140c; --oxblood-600:#751109; --oxblood-300:#ef483c;
+  --burnt-peach:#e76f51; --burnt-peach-300:#f1a896; --burnt-peach-600:#db441e;
+  --verdigris:#2a9d8f; --verdigris-300:#6cd8cb; --verdigris-700:#195e56;
+  --stormy-teal:#286569; --stormy-teal-300:#5fbcc2;
+  --champagne:#ffead0; --champagne-200:#fff7ed; --champagne-600:#ffc174;
+  --frosted-mint:#ddffd9;
+  --wine-plum:#6b2737; --wine-plum-300:#c55f77;
+
+  /* Theme tokens — light default (matches your current site) */
+  --bg:var(--champagne-200); --bg2:#fff; --bg3:var(--champagne);
+  --text:#44403c; --text2:#57534e; --text3:#a8a29e; --heading:#292524;
+  --border:#f0e4d3; --border2:#e5d5be;
+  --hero-bg:var(--oxblood); --hero-text:var(--champagne-200);
+  --spine:#e5d5be; --card-bg:#fff;
+}
+[data-theme="dark"]{
+  /* Anchored in your stormy_teal darks (like the teal-950 photo sections on your current site) */
+  --bg:#081415; --bg2:#102829; --bg3:#183c3e;
+  --text:#cae9eb; --text2:#95d2d7; --text3:#4d7a7e; --heading:var(--champagne);
+  --border:#183c3e; --border2:#1f4f53;
+  --hero-bg:var(--oxblood-600); --hero-text:var(--champagne-200);
+  --spine:#1f4f53; --card-bg:#102829;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);transition:background 0.3s,color 0.3s;}
+
+/* ============ Navbar ============ */
+nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:var(--hero-bg);transition:background 0.3s;}
+.logo{font-family:'Bungee',sans-serif;font-size:18px;color:var(--champagne-200);letter-spacing:0.02em;}
+.logo span{color:var(--burnt-peach-300);}
+.nav-right{display:flex;align-items:center;gap:22px;}
+.nav-links{display:flex;gap:18px;}
+.nav-links a{font-size:13px;color:var(--champagne-200);opacity:0.75;text-decoration:none;transition:opacity 0.15s;}
+.nav-links a:hover{opacity:1;}
+.theme-toggle{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:5px 10px;cursor:pointer;user-select:none;}
+.tt-track{width:28px;height:16px;border-radius:8px;background:rgba(255,255,255,0.25);position:relative;transition:background 0.25s;}
+[data-theme="dark"] .tt-track{background:var(--verdigris);}
+.tt-thumb{width:10px;height:10px;border-radius:50%;background:var(--champagne-200);position:absolute;top:3px;left:3px;transition:transform 0.2s;}
+[data-theme="dark"] .tt-thumb{transform:translateX(12px);}
+.tt-label{font-size:11px;font-weight:600;color:var(--champagne-200);opacity:0.8;min-width:30px;}
+
+/* ============ Hero ============ */
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--hero-bg);color:var(--hero-text);padding:60px 24px;text-align:center;transition:background 0.3s;position:relative;overflow:hidden;}
+.hero h5{font-size:20px;font-weight:400;margin-bottom:8px;opacity:0.85;}
+.hero h1{font-size:clamp(40px,7vw,64px);font-weight:700;margin-bottom:20px;letter-spacing:-0.02em;}
+.hero .blurb{font-size:17px;line-height:1.7;max-width:520px;margin-bottom:12px;opacity:0.9;}
+.typed-line{font-family:'Bitcount Grid Double',monospace;font-size:clamp(18px,3vw,26px);min-height:70px;max-width:640px;margin:16px auto 28px;color:var(--champagne-600);}
+.typed-cursor{display:inline-block;width:10px;background:var(--champagne-600);animation:blink 0.9s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.btn{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;border-radius:8px;padding:12px 28px;cursor:pointer;border:none;transition:transform 0.15s,background 0.2s;text-decoration:none;display:inline-block;}
+.btn:hover{transform:translateY(-2px);}
+.btn-peach{background:var(--burnt-peach);color:#fff;}
+.btn-peach:hover{background:var(--burnt-peach-600);}
+.btn-ghost{background:transparent;color:var(--champagne-200);border:1.5px solid rgba(255,234,208,0.4);}
+.btn-ghost:hover{border-color:var(--champagne-200);}
+
+/* ============ Section scaffolding ============ */
+section{max-width:960px;margin:0 auto;padding:72px 24px 0;}
+.sec-eyebrow{font-family:'Bungee',sans-serif;font-size:12px;letter-spacing:0.1em;color:var(--burnt-peach);margin-bottom:8px;text-transform:uppercase;}
+.sec-title{font-size:clamp(30px,4.5vw,44px);font-weight:700;color:var(--heading);margin-bottom:10px;letter-spacing:-0.02em;}
+.sec-sub{font-size:16px;color:var(--text2);line-height:1.7;max-width:640px;margin-bottom:40px;}
+
+/* ============ Timeline ============ */
+.tl{position:relative;display:flex;flex-direction:column;gap:10px;}
+.spine{position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--spine);transform:translateX(-50%);z-index:0;transition:background 0.3s;}
+.row{position:relative;display:flex;align-items:flex-start;}
+.card-wrap{width:calc(50% - 26px);position:relative;z-index:1;}
+.card-wrap.left{margin-right:auto;}
+.card-wrap.right{margin-left:auto;}
+
+.tcard{border:1.5px solid var(--border);border-radius:12px;background:var(--card-bg);overflow:hidden;cursor:pointer;transition:border-color 0.2s,background 0.3s,box-shadow 0.2s;}
+.tcard:hover{border-color:var(--border2);box-shadow:0 4px 20px rgba(0,0,0,0.06);}
+.tcard.open{border-color:var(--ac);}
+.tc-header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;gap:8px;}
+.tc-left{display:flex;flex-direction:column;gap:3px;text-align:left;}
+.tc-date{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ac);}
+.tc-title{font-size:15px;font-weight:700;color:var(--heading);}
+.tc-role{font-size:12.5px;color:var(--text3);}
+.chev{font-size:18px;color:var(--text3);transition:transform 0.25s;flex-shrink:0;line-height:1;}
+.tcard.open .chev{transform:rotate(180deg);}
+.tc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.32s ease;}
+.tcard.open .tc-body{grid-template-rows:1fr;}
+.tc-inner{overflow:hidden;}
+.tc-content{padding:0 16px 16px;border-top:1px solid var(--border);text-align:left;}
+.tc-desc{font-size:13.5px;color:var(--text2);line-height:1.7;padding:14px 0;}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.chip{background:var(--bg3);border:1px solid var(--border2);border-radius:20px;padding:4px 11px;font-size:11px;color:var(--text2);font-weight:500;}
+
+/* photo strip inside cards */
+.strip-label{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:8px;font-weight:600;}
+.photo-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;}
+.photo-strip::-webkit-scrollbar{height:4px;}
+.photo-strip::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+.sphoto{flex-shrink:0;width:118px;height:80px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10.5px;color:var(--text3);font-weight:500;text-align:center;cursor:pointer;transition:transform 0.15s;background:var(--bg3);border:1px solid var(--border2);line-height:1.3;padding:6px;}
+.sphoto:hover{transform:scale(1.05);}
+
+/* ============ Photo collage (mirrors your original resizable-panel layout) ============ */
+.collage{display:grid;gap:6px;margin-top:4px;
+  grid-template-columns:3fr 2fr 2.5fr 2.5fr;
+  grid-template-rows:110px 110px 95px;
+  grid-template-areas:
+    "sommer sommer  girls   pot31"
+    "sommer sommer  llm     pot31"
+    "pot1   pot1    pot3    pot3";
+}
+.cphoto{border-radius:8px;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:flex-end;justify-content:flex-start;cursor:pointer;position:relative;overflow:hidden;transition:transform 0.18s,box-shadow 0.18s;}
+.cphoto:hover{transform:scale(1.02);box-shadow:0 6px 24px rgba(0,0,0,0.18);z-index:1;}
+.cphoto .cap{font-size:10.5px;font-weight:600;color:var(--text2);padding:8px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.12));width:100%;line-height:1.3;}
+[data-theme="dark"] .cphoto .cap{background:linear-gradient(transparent,rgba(0,0,0,0.35));}
+.c-sommer{grid-area:sommer;}
+.c-girls{grid-area:girls;}
+.c-llm{grid-area:llm;}
+.c-pot1{grid-area:pot1;}
+.c-pot31{grid-area:pot31;}
+.c-pot3{grid-area:pot3;}
+@media(max-width:720px){
+  .collage{grid-template-columns:1fr 1fr;grid-template-rows:140px 90px 90px 100px;
+    grid-template-areas:
+      "sommer sommer"
+      "girls  llm"
+      "pot31  pot3"
+      "pot1   pot1";}
+}
+
+/* dots */
+.dot{position:absolute;left:50%;top:16px;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;border:2.5px solid var(--border2);background:var(--bg);z-index:2;transition:border-color 0.2s,background 0.3s;}
+.dot::after{content:'';position:absolute;inset:3px;border-radius:50%;background:transparent;transition:background 0.2s;}
+.row.open-state .dot{border-color:var(--ac);}
+.row.open-state .dot::after{background:var(--ac);}
+/* split dot for concurrent periods */
+.split-dot{position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:2;}
+.split-dot svg{display:block;}
+
+/* ============ Compensation ============ */
+.comp-layout{display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;}
+.comp-left{flex:0 0 200px;}
+.base-label{font-size:12px;color:var(--text3);margin-bottom:4px;}
+.base-num{font-family:'Bungee',sans-serif;font-size:46px;color:var(--heading);line-height:1;transition:color 0.2s;}
+.base-num.moved{color:var(--verdigris);}
+.base-unit{font-size:13px;color:var(--text3);margin-top:6px;}
+.delta{display:flex;gap:6px;align-items:baseline;margin-top:14px;opacity:0;transition:opacity 0.2s;min-height:24px;}
+.delta.show{opacity:1;}
+.delta-label{font-size:13px;color:var(--text2);}
+.delta-num{font-family:'Bungee',sans-serif;font-size:20px;color:var(--verdigris);}
+.comp-right{flex:1;min-width:280px;}
+.perks-label{font-size:13px;color:var(--text2);margin-bottom:14px;}
+.perks{display:flex;flex-wrap:wrap;gap:8px;}
+.perk{display:flex;align-items:center;gap:8px;border:1.5px solid var(--border2);border-radius:24px;padding:8px 16px;cursor:pointer;user-select:none;background:var(--card-bg);transition:all 0.15s;}
+.perk:hover{border-color:var(--verdigris-300);}
+.perk.on{border-color:var(--verdigris);background:var(--frosted-mint);}
+[data-theme="dark"] .perk.on{background:#12352f;}
+.perk-name{font-size:13px;font-weight:600;color:var(--heading);}
+.perk.on .perk-name{color:var(--verdigris-700);}
+[data-theme="dark"] .perk.on .perk-name{color:var(--verdigris-300);}
+.perk-save{font-size:10.5px;color:var(--text3);}
+.perk.on .perk-save{color:var(--verdigris);}
+
+/* custom benefit row */
+.custom-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:24px;padding-top:20px;border-top:1px dashed var(--border2);}
+.custom-label{font-size:12px;color:var(--text3);width:100%;margin-bottom:2px;}
+.cinput{background:var(--card-bg);border:1.5px solid var(--border2);border-radius:24px;padding:8px 16px;font-size:13px;font-family:'Outfit',sans-serif;color:var(--heading);outline:none;width:210px;}
+.cinput:focus{border-color:var(--burnt-peach-300);}
+.cinput::placeholder{color:var(--text3);}
+.cselect{background:var(--card-bg);border:1.5px solid var(--border2);border-radius:24px;padding:8px 14px;font-size:13px;font-family:'Outfit',sans-serif;color:var(--text2);outline:none;cursor:pointer;}
+.cbtn{background:var(--burnt-peach);border:none;border-radius:24px;padding:9px 18px;font-size:13px;font-weight:600;font-family:'Outfit',sans-serif;color:#fff;cursor:pointer;transition:background 0.15s,opacity 0.15s;}
+.cbtn:hover{background:var(--burnt-peach-600);}
+.cbtn:disabled{opacity:0.35;cursor:default;}
+.footnote{font-size:11.5px;color:var(--text3);margin-top:18px;line-height:1.6;}
+
+/* modal */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:100;align-items:center;justify-content:center;padding:20px;}
+.overlay.open{display:flex;}
+.modal{background:var(--card-bg);border:1.5px solid var(--border2);border-radius:14px;padding:26px;width:380px;max-width:100%;}
+.m-title{font-size:17px;font-weight:700;color:var(--heading);margin-bottom:4px;}
+.m-sub{font-size:13px;color:var(--text2);margin-bottom:18px;line-height:1.6;}
+.m-preview{background:var(--bg3);border-radius:10px;padding:12px 16px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.mp-name{font-size:14px;font-weight:700;color:var(--verdigris);}
+.mp-val{font-size:12px;color:var(--text2);white-space:nowrap;}
+.field{margin-bottom:13px;}
+.field label{display:block;font-size:12px;color:var(--text2);margin-bottom:5px;font-weight:600;}
+.field input{width:100%;background:var(--bg);border:1.5px solid var(--border2);border-radius:9px;padding:10px 13px;font-size:14px;font-family:'Outfit',sans-serif;color:var(--heading);outline:none;}
+.field input:focus{border-color:var(--burnt-peach-300);}
+.m-actions{display:flex;gap:8px;margin-top:18px;}
+.m-cancel{background:transparent;border:1.5px solid var(--border2);border-radius:9px;padding:11px 18px;font-size:14px;font-family:'Outfit',sans-serif;color:var(--text2);cursor:pointer;}
+.m-send{flex:1;background:var(--burnt-peach);border:none;border-radius:9px;padding:11px;font-size:14px;font-weight:700;font-family:'Outfit',sans-serif;color:#fff;cursor:pointer;}
+.m-send:hover{background:var(--burnt-peach-600);}
+.success{display:none;background:var(--frosted-mint);border:1.5px solid var(--verdigris-300);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--verdigris-700);line-height:1.6;margin-top:16px;}
+[data-theme="dark"] .success{background:#12352f;color:var(--verdigris-300);}
+.success.show{display:block;}
+
+/* ============ Lightbox ============ */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:110;align-items:center;justify-content:center;flex-direction:column;gap:14px;}
+.lightbox.open{display:flex;}
+.lb-img{width:520px;max-width:90vw;height:340px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#999;background:#222;}
+.lb-cap{font-size:14px;color:#bbb;}
+.lb-x{position:absolute;top:22px;right:28px;font-size:30px;color:#777;cursor:pointer;line-height:1;background:none;border:none;}
+.lb-x:hover{color:#fff;}
+
+/* ============ Footer / contact ============ */
+footer{margin-top:80px;background:var(--hero-bg);color:var(--champagne-200);padding:56px 24px;text-align:center;transition:background 0.3s;}
+footer .f-title{font-family:'Bungee',sans-serif;font-size:24px;margin-bottom:10px;}
+footer p{font-size:15px;opacity:0.85;margin-bottom:16px;}
+footer a{color:var(--champagne-600);font-weight:600;text-decoration:none;}
+.construction{max-width:720px;margin:64px auto 0;background:var(--burnt-peach);color:#fff;border-radius:14px;padding:24px 28px;text-align:center;font-size:16px;line-height:1.6;}
+.construction strong{font-weight:800;}
+
+/* ============ Responsive ============ */
+@media(max-width:720px){
+  .card-wrap{width:calc(100% - 34px);margin-left:34px !important;margin-right:0 !important;}
+  .spine{left:8px;transform:none;}
+  .dot,.split-dot{left:8px;transform:translateX(-50%);}
+  .row{flex-direction:column;gap:10px;}
+  .nav-links{display:none;}
+  .comp-left{flex:1 1 100%;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;}
+}
+</style>
+</head>
+<body data-theme="light">
+
+<nav>
+  <div class="logo">gabi<span>.</span></div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#timeline">timeline</a>
+      <a href="#compensation">compensation</a>
+      <a href="#contact">contact</a>
+    </div>
+    <div class="theme-toggle" onclick="toggleTheme()" role="switch" aria-checked="false" aria-label="Toggle dark mode" id="theme-toggle">
+      <div class="tt-track"><div class="tt-thumb"></div></div>
+      <span class="tt-label" id="tt-label">light</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <h5>Hi there, my name is</h5>
+  <h1>Gabriela Djuhadi.</h1>
+  <p class="blurb">I am a Fullstack Developer trying to find myself and my niche in a sea of others. I am one of a kind, for better or worse; get to know me if you dare (<strong>I need a job</strong>).</p>
+  <div class="typed-line"><span id="typed"></span><span class="typed-cursor">&nbsp;</span></div>
+  <div class="hero-btns">
+    <a class="btn btn-peach" href="#" download>Hire me!</a>
+    <a class="btn btn-ghost" href="#timeline">See my journey ↓</a>
+  </div>
+</header>
+
+<!-- ============ TIMELINE ============ -->
+<section id="timeline">
+  <div class="sec-eyebrow">Timeline</div>
+  <h2 class="sec-title">Checkpoints of my life so far</h2>
+  <p class="sec-sub">It may not be the most professional or complete, but it encompasses the memories that still stand out to me to this day.</p>
+
+  <div class="tl">
+    <div class="spine"></div>
+
+    <!-- FOKUS — single, most recent -->
+    <div class="row" style="--ac:var(--burnt-peach)" id="row-fokus">
+      <div class="card-wrap left">
+        <div class="tcard" id="card-fokus">
+          <div class="tc-header" onclick="toggleCard('fokus')">
+            <div class="tc-left">
+              <span class="tc-date">2022 — 2024</span>
+              <span class="tc-title">Fraunhofer FOKUS</span>
+              <span class="tc-role">Fullstack developer (part-time)</span>
+            </div>
+            <span class="chev">⌄</span>
+          </div>
+          <div class="tc-body"><div class="tc-inner"><div class="tc-content">
+            <p class="tc-desc"><strong>Do I get the job done? Maybe. But am I a great addition to the team? Absolutely.</strong><br><br>I had a lot of fun working there and I learned a lot. I got to work on a lot of different projects and I met amazing people. I was also the one organizing potlucks, secret santa, and lunch games lmao.</p>
+            <div class="chips">
+              <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">PostgreSQL</span>
+            </div>
+            <div class="strip-label">events and friends 🥺 →</div>
+            <div class="collage">
+              <!-- Layout mirrors your original resizable panels: swap each box for <img src="..." class="w-full h-full object-cover"> -->
+              <div class="cphoto c-sommer" onclick="openLb('Sommer event',event)"><span class="cap">som_ev.jpeg — sommer event (big, landscape)</span></div>
+              <div class="cphoto c-girls" onclick="openLb('LT girlies 💕',event)"><span class="cap">LT_girlies.jpeg</span></div>
+              <div class="cphoto c-llm" onclick="openLb('LLM crew',event)"><span class="cap">LLM3.jpeg</span></div>
+              <div class="cphoto c-pot1" onclick="openLb('Potluck — round one',event)"><span class="cap">potluck1(4).jpg — wide</span></div>
+              <div class="cphoto c-pot31" onclick="openLb('Potluck 3, part 1',event)"><span class="cap">potluck3_1.jpg — tall</span></div>
+              <div class="cphoto c-pot3" onclick="openLb('Potluck 3, part 2',event)"><span class="cap">potluck3.jpg — wide</span></div>
+            </div>
+          </div></div></div>
+        </div>
+      </div>
+      <div class="dot"></div>
+    </div>
+
+    <!-- CONCURRENT: FOKUS + MSc — split dot -->
+    <div class="row" id="row-concurrent">
+      <div class="card-wrap left" style="--ac:var(--burnt-peach)">
+        <div class="tcard" id="card-fokus2">
+          <div class="tc-header" onclick="toggleCard('fokus2')">
+            <div class="tc-left">
+              <span class="tc-date">2022 — 2024</span>
+              <span class="tc-title">Working while studying</span>
+              <span class="tc-role">FOKUS · part-time</span>
+            </div>
+            <span class="chev">⌄</span>
+          </div>
+          <div class="tc-body"><div class="tc-inner"><div class="tc-content">
+            <p class="tc-desc">Juggling part-time development work with a full study load. Tiring, but this is where I learned to actually manage my time and ship things under real constraints.</p>
+            <div class="chips"><span class="chip">Time management</span><span class="chip">Real deadlines</span><span class="chip">Coffee ☕</span></div>
+          </div></div></div>
+        </div>
+      </div>
+
+      <div class="split-dot">
+        <svg width="22" height="40" viewBox="0 0 22 40" aria-label="Two concurrent experiences">
+          <rect x="1.5" y="1.5" width="19" height="37" rx="9.5" fill="var(--bg)" stroke="var(--border2)" stroke-width="2"/>
+          <rect x="5" y="5" width="12" height="14.5" rx="6" fill="var(--burnt-peach)"/>
+          <rect x="5" y="20.5" width="12" height="14.5" rx="6" fill="var(--verdigris)"/>
+        </svg>
+      </div>
+
+      <div class="card-wrap right" style="--ac:var(--verdigris)">
+        <div class="tcard" id="card-msc">
+          <div class="tc-header" onclick="toggleCard('msc')">
+            <div class="tc-left">
+              <span class="tc-date">2022 — 2024</span>
+              <span class="tc-title">MSc Bioinformatics</span>
+              <span class="tc-role">Freie Universität Berlin</span>
+            </div>
+            <span class="chev">⌄</span>
+          </div>
+          <div class="tc-body"><div class="tc-inner"><div class="tc-content">
+            <p class="tc-desc">Computational biology with a heavy data focus — ML pipelines, medical imaging analysis, and learning to think rigorously about messy real-world data.</p>
+            <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">scikit-learn</span><span class="chip">Medical imaging</span></div>
+            <div class="strip-label">memories from this time →</div>
+            <div class="photo-strip">
+              <div class="sphoto" onclick="openLb('Study group — FU Berlin',event)">study<br>group</div>
+              <div class="sphoto" onclick="openLb('Thesis submission day',event)">thesis<br>day 🎓</div>
+              <div class="sphoto" onclick="openLb('Campus in spring',event)">campus</div>
+            </div>
+          </div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAP -->
+    <div class="row" style="--ac:var(--wine-plum-300)" id="row-gap">
+      <div class="card-wrap right">
+        <div class="tcard" id="card-gap">
+          <div class="tc-header" onclick="toggleCard('gap')">
+            <div class="tc-left">
+              <span class="tc-date">2020 — 2021</span>
+              <span class="tc-title">Gap? What Gap?</span>
+              <span class="tc-role">Covid graduate era</span>
+            </div>
+            <span class="chev">⌄</span>
+          </div>
+          <div class="tc-body"><div class="tc-inner"><div class="tc-content">
+            <p class="tc-desc">I graduated during covid 😭 It was very hard to find a job and I moved back to Indo. One year of unsuccessfully trying out Forex trading, and then I worked as the entire marketing department for a startup product — got them their first 5–10 customers, starting from zero. LMAO.</p>
+            <div class="chips"><span class="chip">Meta Ads</span><span class="chip">Marketing (all of it)</span><span class="chip">Resilience</span></div>
+          </div></div></div>
+        </div>
+      </div>
+      <div class="dot"></div>
+    </div>
+
+    <!-- BACHELOR -->
+    <div class="row" style="--ac:var(--stormy-teal-300)" id="row-bsc">
+      <div class="card-wrap left">
+        <div class="tcard" id="card-bsc">
+          <div class="tc-header" onclick="toggleCard('bsc')">
+            <div class="tc-left">
+              <span class="tc-date">— 2020</span>
+              <span class="tc-title">Baccalaureate</span>
+              <span class="tc-role">UCLA</span>
+            </div>
+            <span class="chev">⌄</span>
+          </div>
+          <div class="tc-body"><div class="tc-inner"><div class="tc-content">
+            <p class="tc-desc">Ah, the good ol' days. I had a lot of fun but somehow this memory of mine is fading quickly. It lowkey feels like a dream now. It felt like home — but for some reason it had to end.</p>
+            <div class="strip-label">memories from this time →</div>
+            <div class="photo-strip">
+              <div class="sphoto" onclick="openLb('The circle — first year',event)">the<br>circle</div>
+              <div class="sphoto" onclick="openLb('Campus days',event)">campus<br>days</div>
+              <div class="sphoto" onclick="openLb('Graduation (remote 🙃)',event)">graduation 🙃</div>
+            </div>
+          </div></div></div>
+        </div>
+      </div>
+      <div class="dot"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ COMPENSATION ============ -->
+<section id="compensation">
+  <div class="sec-eyebrow">Compensation</div>
+  <h2 class="sec-title">Let's talk numbers</h2>
+  <p class="sec-sub">Transparent from the start. Here's my base expectation — and the benefits that make me flexible about it. Toggle what your company offers and watch the number move.</p>
+
+  <div class="comp-layout">
+    <div class="comp-left">
+      <div class="base-label">base expectation</div>
+      <div class="base-num" id="base-num">€60k</div>
+      <div class="base-unit">gross / year · Berlin</div>
+      <div class="delta" id="delta">
+        <span class="delta-label">with your perks →</span>
+        <span class="delta-num" id="delta-num"></span>
+      </div>
+    </div>
+
+    <div class="comp-right">
+      <div class="perks-label">benefits that flex the number — click what applies:</div>
+      <div class="perks" id="perks"></div>
+
+      <div class="custom-row">
+        <div class="custom-label">offering a benefit that's not listed? tell me and I'll get back to you with my adjusted ask *</div>
+        <input class="cinput" id="cb-name" placeholder="e.g. company car, childcare..." maxlength="40"/>
+        <select class="cselect" id="cb-val">
+          <option value="" disabled selected>value / year</option>
+          <option>under €500</option>
+          <option>€500 – €1k</option>
+          <option>€1k – €2k</option>
+          <option>€2k – €3k</option>
+          <option>€3k+</option>
+        </select>
+        <button class="cbtn" id="cb-btn" onclick="openModal()" disabled>see how it affects my ask →</button>
+      </div>
+
+      <div class="success" id="cb-success">
+        Got it! I'll get back to you at <strong id="s-email"></strong> about <strong id="s-benefit"></strong>. Talk soon 👋
+      </div>
+
+      <p class="footnote">* all numbers on this page are indicative and open to discussion. The perk values reflect what those benefits are genuinely worth to me — your mileage may vary.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONSTRUCTION NOTE (from your current site) ============ -->
+<div class="construction">
+  Page is still under construction... You can email me for inquiries or just to say hi! (<strong>I need a job</strong>)
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact">
+  <div class="f-title">say hi 👋</div>
+  <p>Open to junior / graduate fullstack roles in Berlin.</p>
+  <a href="mailto:gabglodj@gmail.com">gabglodj@gmail.com</a>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="m-title">What's your offer?</div>
+    <div class="m-sub">Drop your details and I'll reply with how this benefit affects my ask.</div>
+    <div class="m-preview">
+      <div>
+        <div style="font-size:10.5px;color:var(--text3);margin-bottom:3px;">benefit you added</div>
+        <div class="mp-name" id="mp-name"></div>
+      </div>
+      <div class="mp-val" id="mp-val"></div>
+    </div>
+    <!-- Replace YOUR_FORM_ID with your Formspree form ID to receive real submissions -->
+    <form id="cb-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="hidden" name="benefit" id="f-benefit"/>
+      <input type="hidden" name="value_bracket" id="f-bracket"/>
+      <div class="field"><label>Name</label><input name="name" id="f-name" placeholder="Ada Lovelace" required/></div>
+      <div class="field"><label>Company</label><input name="company" id="f-company" placeholder="Acme GmbH" required/></div>
+      <div class="field"><label>Email</label><input name="email" id="f-email" type="email" placeholder="ada@acme.com" required/></div>
+      <div class="m-actions">
+        <button type="button" class="m-cancel" onclick="closeModal()">cancel</button>
+        <button type="submit" class="m-send">send →</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" onclick="closeLb()">
+  <button class="lb-x" onclick="closeLb()" aria-label="Close">✕</button>
+  <div class="lb-img" id="lb-img">[ photo ]</div>
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+
+<script>
+/* ============ Typing animation (recreates your react-type-animation sequence) ============ */
+const sequence = [
+  ["Bioinformatician by training.", 500],
+  ["Bioinformatician by training. Web developer by (former) part-time job.", 500],
+  ["Bioinformatician by training. Web developer by (former) part-time job. Full-time cat-servant and former personality hire", 1500],
+  ["Bioinformatician by training. Web developer by (former) part-time job. Full-time cat-servant and former ", 1500],
+  ["Bioinformatician by training. Web developer by (former) part-time job. Full-time cat-servant and former event organizer.", 0],
+];
+const typedEl = document.getElementById('typed');
+let seqIdx = 0;
+
+function typeTo(target, done) {
+  const current = typedEl.textContent;
+  // find common prefix
+  let common = 0;
+  while (common < current.length && common < target.length && current[common] === target[common]) common++;
+
+  function del() {
+    if (typedEl.textContent.length > common) {
+      typedEl.textContent = typedEl.textContent.slice(0, -1);
+      setTimeout(del, 12);
+    } else type();
+  }
+  function type() {
+    if (typedEl.textContent.length < target.length) {
+      typedEl.textContent = target.slice(0, typedEl.textContent.length + 1);
+      setTimeout(type, 28);
+    } else done();
+  }
+  del();
+}
+function runSeq() {
+  if (seqIdx >= sequence.length) return;
+  const [text, pause] = sequence[seqIdx];
+  typeTo(text, () => {
+    seqIdx++;
+    setTimeout(runSeq, pause);
+  });
+}
+runSeq();
+
+/* ============ Theme toggle ============ */
+function toggleTheme() {
+  const body = document.body;
+  const isDark = body.dataset.theme === 'dark';
+  body.dataset.theme = isDark ? 'light' : 'dark';
+  document.getElementById('tt-label').textContent = isDark ? 'light' : 'dark';
+  document.getElementById('theme-toggle').setAttribute('aria-checked', !isDark);
+  try { localStorage.setItem('theme', body.dataset.theme); } catch(e) {}
+}
+try {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark') { document.body.dataset.theme = 'dark'; document.getElementById('tt-label').textContent = 'dark'; }
+} catch(e) {}
+
+/* ============ Timeline cards ============ */
+function toggleCard(id) {
+  const card = document.getElementById('card-' + id);
+  card.classList.toggle('open');
+  const row = card.closest('.row');
+  // dot lights up if any card in the row is open
+  const anyOpen = row.querySelector('.tcard.open') !== null;
+  row.classList.toggle('open-state', anyOpen);
+}
+
+/* ============ Compensation perks ============ */
+const BASE = 60;
+const perks = [
+  { id:'wfa',    label:'30 days work from non-EU', save:3 },
+  { id:'ticket', label:'Deutschland Ticket subsidy', save:1 },
+  { id:'lunch',  label:'Free lunch & snacks', save:2 },
+  { id:'remote', label:'Flexible remote policy', save:2 },
+  { id:'learn',  label:'Learning & conference budget', save:1 },
+  { id:'equip',  label:'Equipment of choice', save:1 },
+  { id:'health', label:'Health & wellness benefits', save:2 },
+  { id:'gym',    label:'Sports / gym subsidy', save:1 },
+];
+const active = new Set();
+const perksEl = document.getElementById('perks');
+perks.forEach(p => {
+  const el = document.createElement('div');
+  el.className = 'perk';
+  el.id = 'perk-' + p.id;
+  el.innerHTML = '<span class="perk-name">' + p.label + '</span><span class="perk-save">−€' + p.save + 'k</span>';
+  el.onclick = () => {
+    active.has(p.id) ? active.delete(p.id) : active.add(p.id);
+    el.classList.toggle('on', active.has(p.id));
+    updateComp();
+  };
+  perksEl.appendChild(el);
+});
+function updateComp() {
+  let discount = 0;
+  perks.forEach(p => { if (active.has(p.id)) discount += p.save; });
+  const adjusted = Math.max(BASE - discount, 48);
+  const baseNum = document.getElementById('base-num');
+  const delta = document.getElementById('delta');
+  if (discount > 0) {
+    baseNum.classList.add('moved');
+    delta.classList.add('show');
+    document.getElementById('delta-num').textContent = '€' + adjusted + 'k';
+  } else {
+    baseNum.classList.remove('moved');
+    delta.classList.remove('show');
+  }
+}
+
+/* ============ Custom benefit → contact modal ============ */
+const cbName = document.getElementById('cb-name');
+const cbVal = document.getElementById('cb-val');
+const cbBtn = document.getElementById('cb-btn');
+function checkCb() { cbBtn.disabled = !(cbName.value.trim() && cbVal.value); }
+cbName.addEventListener('input', checkCb);
+cbVal.addEventListener('change', checkCb);
+
+function openModal() {
+  document.getElementById('mp-name').textContent = cbName.value.trim();
+  document.getElementById('mp-val').textContent = cbVal.value + ' / yr';
+  document.getElementById('f-benefit').value = cbName.value.trim();
+  document.getElementById('f-bracket').value = cbVal.value;
+  document.getElementById('overlay').classList.add('open');
+}
+function closeModal() { document.getElementById('overlay').classList.remove('open'); }
+document.getElementById('overlay').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+document.getElementById('cb-form').addEventListener('submit', function(e) {
+  // If Formspree ID is not set yet, show the success message locally instead of failing
+  if (this.action.includes('YOUR_FORM_ID')) {
+    e.preventDefault();
+    closeModal();
+    document.getElementById('s-email').textContent = document.getElementById('f-email').value;
+    document.getElementById('s-benefit').textContent = cbName.value.trim();
+    document.getElementById('cb-success').classList.add('show');
+    cbName.value = ''; cbVal.selectedIndex = 0; cbBtn.disabled = true;
+  }
+  // With a real Formspree ID, the form posts normally.
+});
+
+/* ============ Lightbox ============ */
+function openLb(caption, e) {
+  e.stopPropagation();
+  document.getElementById('lb-cap').textContent = caption;
+  document.getElementById('lb-img').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLb() { document.getElementById('lightbox').classList.remove('open'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLb(); closeModal(); } });
+</script>
+</body>
+</html>
