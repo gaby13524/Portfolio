@@ -15,7 +15,7 @@ const PERKS: Perk[] = [
     label: "30 days work from non-EU (or more, i value this a lot)",
     save: 5,
   },
-  {id: "ticket", label: "Deutschland Ticket subsidy", save: 1},
+  {id: "ticket", label: "Free Deutschland Ticket", save: 1},
   {id: "lunch", label: "Free lunch & snacks", save: 2},
   {id: "remote", label: "Flexible working time", save: 2},
   {id: "gym", label: "Sports / Health & wellness benefit", save: 2},
@@ -74,7 +74,7 @@ export function Compensation() {
         Compensation
       </div>
       <h2 className="mb-2.5 text-4xl font-bold tracking-tight text-(--ink-heading) md:text-5xl">
-        Let's talk numbers
+        Let's talk numbers*
       </h2>
       <p className="mb-10 max-w-xl text-base leading-relaxed text-(--ink-soft)">
         Transparent from the start. Here's my base expectation — and the
@@ -154,7 +154,7 @@ export function Compensation() {
           <div className="mt-6 flex flex-wrap items-center gap-2 border-t border-dashed border-(--line-strong) pt-5">
             <div className="mb-0.5 w-full text-xs text-(--ink-faint)">
               offering a benefit that's not listed? tell me and I'll get back to
-              you with my adjusted ask *
+              you with my adjusted ask **
             </div>
             <input
               value={cbName}
@@ -190,12 +190,17 @@ export function Compensation() {
               about <strong>{submitted.benefit}</strong>. Talk soon 👋
             </div>
           )}
-
-          <p className="mt-4.5 text-[11.5px] leading-relaxed text-(--ink-faint)">
-            * all numbers on this page are indicative and open to discussion.
-            The perk values reflect what those benefits are genuinely worth to
-            me — your mileage may vary.
-          </p>
+          <div className="mt-4.5 text-[11.5px] leading-relaxed text-(--ink-faint)">
+            <p>
+              * This only applies if I didn't apply to your company. If I did,
+              my ask is what I put in the application.
+            </p>
+            <p>
+              ** all numbers on this page are indicative and open to discussion.
+              The perk values reflect what those benefits are genuinely worth to
+              me — your mileage may vary.
+            </p>
+          </div>
         </div>
       </div>
 

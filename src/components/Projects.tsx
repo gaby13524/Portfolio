@@ -7,7 +7,7 @@ interface Project {
   desc: string;
   tags: string[];
   accent: string;
-  repo?: string;
+  url: string;
   live?: string;
 }
 
@@ -16,10 +16,10 @@ const PROJECTS: Project[] = [
     id: "taskbreaker",
     title: "Task Breaker",
     status: "in progress 🚧",
-    desc: "Breaking overwhelming tasks into small, doable steps. Because sometimes the hardest part of doing the thing is figuring out where the thing even starts.",
+    desc: "Breaking overwhelming tasks into small, doable steps. Because sometimes the hardest part of doing the thing is figuring out where the thing even starts -- which is often my case.",
     tags: ["React", "TypeScript"],
     accent: "#e76f51", // burnt_peach
-    repo: "https://github.com/gaby13524/task_breaker",
+    url: "https://github.com/gaby13524/task_breaker",
   },
   {
     id: "thesis",
@@ -27,15 +27,15 @@ const PROJECTS: Project[] = [
     desc: "Medical image segmentation with deep learning — building reproducible ML pipelines for multi-modal imaging data. The most rigorous thing I've ever debugged.",
     tags: ["Python", "nnU-Net", "SimpleITK", "Deep learning"],
     accent: "#2a9d8f", // verdigris
-    repo: "https://github.com/gaby13524/DrosophilaRegistration-Thesis",
+    url: "https://github.com/gaby13524/DrosophilaRegistration-Thesis",
   },
   {
     id: "funfact",
     title: "FunFact",
-    desc: "A place to share my fun facts, built to learn Vue coming from React. Contains deliberate redundancy — I wanted to learn how routing and Pinia work, not write the shortest possible App.vue.",
+    desc: "2 half-days project to learn Vue for an interview hahaha. Contains deliberate redundancy — I wanted to learn how routing and Pinia work, not write the shortest possible App.vue.",
     tags: ["Vue", "Pinia", "Vue Router"],
     accent: "#c55f77", // wine_plum-300
-    repo: "https://github.com/gaby13524/FunFact",
+    url: "https://gaby13524.github.io/fun_fact/",
   },
 ];
 
@@ -92,6 +92,9 @@ export function Projects() {
             <article
               key={p.id}
               style={{["--ac" as string]: p.accent}}
+              onClick={() =>
+                window.open(p.url, "_blank", "noopener,noreferrer")
+              }
               className="flex w-[85%] flex-none snap-center flex-col rounded-2xl border-[1.5px] border-(--line) bg-(--surface-card) p-6 transition-colors hover:border-(--ac) sm:w-[70%] md:w-[55%]"
             >
               <div className="mb-1 flex items-baseline gap-2.5">
@@ -120,29 +123,6 @@ export function Projects() {
                     {t}
                   </span>
                 ))}
-              </div>
-              <div className="flex gap-2">
-                {p.repo && (
-                  <a
-                    href={p.repo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-lg border-[1.5px] border-(--line-strong) px-4 py-2 text-[13px] font-semibold text-(--ink-heading) transition hover:border-(--ac)"
-                  >
-                    GitHub ↗
-                  </a>
-                )}
-                {p.live && (
-                  <a
-                    href={p.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-lg px-4 py-2 text-[13px] font-semibold text-white transition"
-                    style={{background: p.accent}}
-                  >
-                    Live demo ↗
-                  </a>
-                )}
               </div>
             </article>
           ))}

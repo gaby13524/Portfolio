@@ -1,4 +1,5 @@
-import { TypeAnimation } from "react-type-animation";
+import {TypeAnimation} from "react-type-animation";
+import resumePdf from "../assets/Djuhadi_Resume.pdf";
 
 export function Intro() {
   return (
@@ -33,7 +34,7 @@ export function Intro() {
 
       <div className="flex flex-wrap justify-center gap-3">
         <a
-          href="/resume.pdf"
+          href={resumePdf}
           download
           className="rounded-lg bg-burnt_peach-500 px-7 py-3 text-[15px] font-semibold text-white transition hover:-translate-y-0.5 hover:bg-burnt_peach-600"
         >
